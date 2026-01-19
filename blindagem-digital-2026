@@ -1,0 +1,22 @@
+blindagem-digital-2026
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blindagem Digital 2026</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; background: #f6f7f5; padding: 50px; }
+        .card { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); max-width: 500px; margin: 0 auto; }
+        .btn { display: block; background: #768b5d; color: white; padding: 15px; text-decoration: none; border-radius: 10px; font-weight: bold; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Manual de Blindagem Digital</h1>
+        <p>Proteja seu benefício contra golpes em 2026.</p>
+        <p><strong>Valor: R$ 47,00</strong></p>
+        <a href="https://pay.cakto.com.br/gsjkjej_731733" class="btn">COMPRAR AGORA</a>
+    </div>
+</body>
+</html>
