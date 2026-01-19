@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MFRGS | Proteção & Gratidão</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <style>
+        :root { --sage: #768b5d; --gold: #d4a04a; --bg: #f6f7f5; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: #333; text-align: center; padding: 40px 20px; }
+        .card { background: white; max-width: 450px; margin: auto; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid var(--sage); }
+        input { width: 90%; padding: 12px; margin: 10px 0; border-radius: 25px; border: 1px solid #ddd; outline: none; }
+        .btn { background: var(--gold); color: white; padding: 15px 30px; border: none; border-radius: 50px; cursor: pointer; font-weight: bold; width: 100%; transition: 0.3s; }
+        .btn:hover { background: var(--sage); }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2 style="color: var(--sage);">Fábrica de Gratidão</h2>
+        <p>Inscreva-se para receber atualizações da <strong>MFRGS INOVAÇÕES</strong> e proteger sua família.</p>
+        
+        <input type="text" id="name" placeholder="Seu Nome">
+        <input type="email" id="email" placeholder="Seu melhor e-mail">
+        <button onclick="sendData()" class="btn">ATIVAR PROTEÇÃO</button>
+    </div>
+
+    <script>
+        const _supabase = supabase.createClient('https://ffcbblosqlbscygikvij.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZmY2JibG9zcWxic2N5Z2lrdmlqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg4MzMwMDksImV4cCI6MjA4NDQwOTAwOX0.QM5DmyqVS4rwJ2QFegG1zMx4UrfSKP6PjWe_nNo_xNM');
+
+        async function sendData() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+
+            if(!email) return alert("O e-mail é essencial para sua segurança.");
+
+            const { error } = await _supabase.from('sales').insert([{ 
+                customer_name: name, 
+                customer_email: email, 
+                status: 'lead_inscrito' 
+            }]);
+
+            if (error) {
+                alert("Erro na conexão. Verifique sua rede.");
+            } else {
+                alert("MFRGS: Inscrição realizada com sucesso!");
+                window.location.href = "index.html"; // Volta para a página principal
+            }
+        }
+    </script>
+</body>
+</html>
