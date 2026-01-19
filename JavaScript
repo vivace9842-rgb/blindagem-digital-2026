@@ -1,0 +1,10 @@
+// Função para tratar erros de conexão e garantir autonomia
+function handleSystemError(error) {
+    console.error("Alerta MFRGS:", error);
+    const container = document.getElementById('product-list');
+    container.innerHTML = `
+        <div class="product-card" style="border-color: var(--gold);">
+            <h3>Sistema em Manutenção Preventiva</h3>
+            <p>Estamos otimizando sua segurança. Tente novamente em instantes.</p>
+        </div>`;
+}
