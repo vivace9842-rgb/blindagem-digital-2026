@@ -1,31 +1,28 @@
 const { chromium } = require('playwright');
 
-// Configuração da MFRGS INOVAÇÕES
-const TERMOS_BUSCA = ['fui hackeado', 'como me proteger de golpes', 'segurança digital 2026'];
+// MFRGS INOVAÇÕES - Radar Diferenciado (Urgência + Acolhimento)
+const SINAIS_SOCORRO = [
+  'fui hackeado no whatsapp',
+  'como recuperar instagram invadido',
+  'perdi acesso ao meu banco',
+  'segurança digital 2026'
+];
 
-async function executarAgenteRadar() {
-    console.log("🛡️ MFRGS: Iniciando Agente Radar (Prospecção)...");
-    
-    const browser = await chromium.launch({ headless: true }); // Rodando em segundo plano
+async function iniciarSuperRadar() {
+    console.log("🛡️ EMPATHIA™: Sentinela Diferenciado Iniciado...");
+    const browser = await chromium.launch({ headless: true });
     const page = await browser.newPage();
 
-    for (const termo of TERMOS_BUSCA) {
-        console.log(`🔍 Buscando por: ${termo}`);
-        
-        // Simulando busca em redes sociais ou fóruns
+    for (const termo of SINAIS_SOCORRO) {
+        console.log(`🔍 Escutando a rede por: ${termo}`);
+        // Busca focada em quem está pedindo ajuda
         await page.goto(`https://www.google.com/search?q=${encodeURIComponent(termo)}`);
         
-        // Extraindo títulos e links (Mente do sistema)
-        const resultados = await page.$$eval('h3', nodes => nodes.map(n => n.innerText));
-        
-        console.log(`✅ Encontrados ${resultados.length} potenciais clientes para o Manual.`);
-        
-        // Aqui o bot salvaria no seu Supabase automaticamente
-        // enviarParaSupabase(resultados);
+        const leads = await page.$$eval('h3', nodes => nodes.map(n => n.innerText));
+        console.log(`✅ ${leads.length} oportunidades de acolhimento encontradas.`);
     }
 
     await browser.close();
-    console.log("🌿 Missão cumprida. Radar em modo de espera.");
 }
 
-executarAgenteRadar();
+iniciarSuperRadar();
